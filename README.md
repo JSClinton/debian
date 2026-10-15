@@ -13,12 +13,15 @@ This repository contains a small Debian setup bundle for creating a base server 
 - `motd/90-footer` – MOTD footer
 - `setup.sh` – script that installs the base configuration on a new Debian machine
 
-## Setup from release tarball
+## Setup from a GitHub release tarball
 
-Download the latest release tarball from GitHub, extract it, and run the setup script:
+GitHub can generate a source tarball automatically for each release. Create a tag and publish a GitHub Release, then download the archive from the release page.
+
+Example:
 
 ```bash
-wget -O /tmp/debian-setup.tar.gz https://github.com/JSClinton/debian/archive/refs/heads/main.tar.gz
+wget -O /tmp/debian-setup.tar.gz \
+  https://github.com/JSClinton/debian/archive/refs/tags/v1.0.0.tar.gz
 mkdir -p /tmp/debian-setup
 cd /tmp/debian-setup
 tar -xzf /tmp/debian-setup.tar.gz --strip-components=1
@@ -26,7 +29,21 @@ chmod +x ./setup.sh
 sudo ./setup.sh
 ```
 
-If you are installing from a tagged release instead of `main`, replace the URL with the tag archive URL.
+If you want to use the latest release, replace `v1.0.0` with your actual tag name.
+
+## How to create a release
+
+1. Create and push a Git tag, for example:
+
+```bash
+git tag v1.0.0
+git push origin v1.0.0
+```
+
+2. Open the GitHub Releases page for the repo.
+3. Click `Draft a new release`.
+4. Select the tag and publish the release.
+5. GitHub will generate the `.tar.gz` and `.zip` archives automatically.
 
 ## What the script does
 
