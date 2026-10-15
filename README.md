@@ -19,7 +19,7 @@ Memory usage:   11.7%   System uptime:  2 min
 Usage on /:     3%      Swap usage:     0.0%
 Local Users:    4       Processes:      109
 
- packages can be updated.
+69 packages can be updated.
 
 Last login: Thu Oct 15 11:39:04 2026 from 10.1.2.27
 ```
