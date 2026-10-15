@@ -18,17 +18,15 @@ This repository contains a small Debian setup bundle for creating a base server 
 Run this on a fresh Debian system:
 
 ```bash
-sudo bash -c "$(wget -qO- https://raw.githubusercontent.com/<your-user>/<your-repo>/<branch>/setup.sh)"
+sudo bash -c "$(wget -qO- https://raw.githubusercontent.com/JSClinton/debian/main/setup.sh)"
 ```
 
 Or save it locally first:
 
 ```bash
-wget -O setup.sh https://raw.githubusercontent.com/<your-user>/<your-repo>/<branch>/setup.sh
+wget -O setup.sh https://raw.githubusercontent.com/JSClinton/debian/main/setup.sh
 sudo bash ./setup.sh
 ```
-
-Replace `<your-user>`, `<your-repo>`, and `<branch>` with your actual GitHub values.
 
 ## What the script does
 
