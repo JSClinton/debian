@@ -2,6 +2,28 @@
 
 This repository contains a small Debian setup bundle for creating a base server environment. It includes shell config, MOTD scripts, and an update counter used by the system message of the day.
 
+`
+     _      _     _             _            _
+  __| | ___| |__ (_) __ _ _ __ | |_ ___  ___| |_
+ / _` |/ _ \ '_ \| |/ _` | '_ \| __/ _ \/ __| __|
+| (_| |  __/ |_) | | (_| | | | | ||  __/\__ \ |_
+ \__,_|\___|_.__/|_|\__,_|_| |_|\__\___||___/\__|
+
+
+Welcome to Debian GNU/Linux 13 (trixie) (6.12.111+deb13-amd64).
+
+System information as of: Thu Oct 15 11:41:01 EDT 2026
+
+System load:    0.07    IP Address:     10.1.2.250
+Memory usage:   11.7%   System uptime:  2 min
+Usage on /:     3%      Swap usage:     0.0%
+Local Users:    4       Processes:      109
+
+ packages can be updated.
+
+Last login: Thu Oct 15 11:39:04 2026 from 10.1.2.27
+`
+
 ## Included files
 
 - `.vimrc` – Vim configuration for the base environment
