@@ -27,6 +27,8 @@ ensure_packages() {
 install_default_shells() {
   local user_home="${HOME:-/root}"
 
+  mkdir -p /etc/skel
+
   if [[ -f "${SCRIPT_DIR}/.vimrc" ]]; then
     log "Installing .vimrc to /etc/skel"
     install -m 0644 "${SCRIPT_DIR}/.vimrc" /etc/skel/.vimrc
@@ -46,9 +48,11 @@ install_default_shells() {
     ln -sfn /etc/skel/.zsh "${user_home}/.zsh"
   fi
 
-  if command -v chsh >/dev/null 2>&1; then
+  if command -v chsh >/dev/null 2>&1 && command -v zsh >/dev/null 2>&1; then
     log "Setting default shell to zsh for root"
     chsh -s "$(command -v zsh)" root || true
+  else
+    log "zsh or chsh not available; skipping default shell change"
   fi
 }
 
