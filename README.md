@@ -2,7 +2,7 @@
 
 This repository contains a small Debian setup bundle for creating a base server environment. It includes shell config, MOTD scripts, and an update counter used by the system message of the day.
 
-`
+```
      _      _     _             _            _
   __| | ___| |__ (_) __ _ _ __ | |_ ___  ___| |_
  / _` |/ _ \ '_ \| |/ _` | '_ \| __/ _ \/ __| __|
@@ -22,7 +22,7 @@ Local Users:    4       Processes:      109
  packages can be updated.
 
 Last login: Thu Oct 15 11:39:04 2026 from 10.1.2.27
-`
+```
 
 ## Included files
 
