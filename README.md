@@ -15,13 +15,19 @@ This repository contains a small Debian setup bundle for creating a base server 
 
 ## Setup from the latest GitHub release tarball
 
-This repo automatically creates a GitHub Release on each push to `main`, with a tag like `main-abc1234` and a matching tarball name like `debian-main-abc1234.tar.gz`.
+This repo automatically creates a GitHub Release on each push to `main`.
 
-Install the latest auto-generated release like this:
+The release asset is always named:
+
+```bash
+debian-main.tar.gz
+```
+
+Install it like this, without installing `git`:
 
 ```bash
 wget -O /tmp/debian-setup.tar.gz \
-  https://github.com/JSClinton/debian/releases/latest/download/debian-main-$(git ls-remote https://github.com/JSClinton/debian.git HEAD | cut -c1-7).tar.gz
+  https://github.com/JSClinton/debian/releases/latest/download/debian-main.tar.gz
 mkdir -p /tmp/debian-setup
 cd /tmp/debian-setup
 tar -xzf /tmp/debian-setup.tar.gz --strip-components=1
@@ -29,7 +35,7 @@ chmod +x ./setup.sh
 sudo ./setup.sh
 ```
 
-If you prefer to install a specific release, replace the URL with the exact release asset you want.
+If you prefer a specific release, open the GitHub Releases page and download the asset you want.
 
 ## What the script does
 

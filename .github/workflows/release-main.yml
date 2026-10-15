@@ -24,7 +24,7 @@ jobs:
         run: |
           mkdir -p dist
           tar --exclude=.git --exclude=.github \
-            -czf "dist/debian-main-${{ steps.meta.outputs.short_sha }}.tar.gz" .
+            -czf "dist/debian-main.tar.gz" .
 
       - name: Publish GitHub release
         uses: softprops/action-gh-release@v2
@@ -33,4 +33,4 @@ jobs:
           name: main-${{ steps.meta.outputs.short_sha }}
           generate_release_notes: true
           files: |
-            dist/debian-main-${{ steps.meta.outputs.short_sha }}.tar.gz
+            dist/debian-main.tar.gz
