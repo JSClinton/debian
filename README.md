@@ -13,15 +13,15 @@ This repository contains a small Debian setup bundle for creating a base server 
 - `motd/90-footer` – MOTD footer
 - `setup.sh` – script that installs the base configuration on a new Debian machine
 
-## Setup from a GitHub release tarball
+## Setup from the latest GitHub release tarball
 
-GitHub can generate a source tarball automatically for each release. Create a tag and publish a GitHub Release, then download the archive from the release page.
+This repo automatically creates a GitHub Release on each push to `main`, with a tag like `main-abc1234` and a matching tarball name like `debian-main-abc1234.tar.gz`.
 
-Example:
+Install the latest auto-generated release like this:
 
 ```bash
 wget -O /tmp/debian-setup.tar.gz \
-  https://github.com/JSClinton/debian/archive/refs/tags/v1.0.0.tar.gz
+  https://github.com/JSClinton/debian/releases/latest/download/debian-main-$(git ls-remote https://github.com/JSClinton/debian.git HEAD | cut -c1-7).tar.gz
 mkdir -p /tmp/debian-setup
 cd /tmp/debian-setup
 tar -xzf /tmp/debian-setup.tar.gz --strip-components=1
@@ -29,21 +29,7 @@ chmod +x ./setup.sh
 sudo ./setup.sh
 ```
 
-If you want to use the latest release, replace `v1.0.0` with your actual tag name.
-
-## How to create a release
-
-1. Create and push a Git tag, for example:
-
-```bash
-git tag v1.0.0
-git push origin v1.0.0
-```
-
-2. Open the GitHub Releases page for the repo.
-3. Click `Draft a new release`.
-4. Select the tag and publish the release.
-5. GitHub will generate the `.tar.gz` and `.zip` archives automatically.
+If you prefer to install a specific release, replace the URL with the exact release asset you want.
 
 ## What the script does
 

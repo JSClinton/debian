@@ -16,17 +16,21 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      - name: Determine release tag
+        id: meta
+        run: echo "short_sha=$(git rev-parse --short HEAD)" >> "$GITHUB_OUTPUT"
+
       - name: Create release tarball
         run: |
           mkdir -p dist
           tar --exclude=.git --exclude=.github \
-            -czf "dist/debian-main-${GITHUB_SHA}.tar.gz" .
+            -czf "dist/debian-main-${{ steps.meta.outputs.short_sha }}.tar.gz" .
 
       - name: Publish GitHub release
         uses: softprops/action-gh-release@v2
         with:
-          tag_name: main-${{ github.sha }}
-          name: main-${{ github.sha }}
+          tag_name: main-${{ steps.meta.outputs.short_sha }}
+          name: main-${{ steps.meta.outputs.short_sha }}
           generate_release_notes: true
           files: |
-            dist/debian-main-${{ github.sha }}.tar.gz
+            dist/debian-main-${{ steps.meta.outputs.short_sha }}.tar.gz
