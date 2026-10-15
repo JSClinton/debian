@@ -16,9 +16,10 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Determine release tag
-        id: meta
-        run: echo "short_sha=$(git rev-parse --short HEAD)" >> "$GITHUB_OUTPUT"
+      - name: Remove previous main release
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: gh release delete main --cleanup-tag --yes || true
 
       - name: Create release tarball
         run: |
@@ -29,8 +30,8 @@ jobs:
       - name: Publish GitHub release
         uses: softprops/action-gh-release@v2
         with:
-          tag_name: main-${{ steps.meta.outputs.short_sha }}
-          name: main-${{ steps.meta.outputs.short_sha }}
+          tag_name: main
+          name: main
           generate_release_notes: true
           files: |
             dist/debian-main.tar.gz
