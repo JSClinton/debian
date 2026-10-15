@@ -13,20 +13,20 @@ This repository contains a small Debian setup bundle for creating a base server 
 - `motd/90-footer` – MOTD footer
 - `setup.sh` – script that installs the base configuration on a new Debian machine
 
-## Setup script
+## Setup from release tarball
 
-Run this on a fresh Debian system:
-
-```bash
-sudo bash -c "$(wget -qO- https://raw.githubusercontent.com/JSClinton/debian/main/setup.sh)"
-```
-
-Or save it locally first:
+Download the latest release tarball from GitHub, extract it, and run the setup script:
 
 ```bash
-wget -O setup.sh https://raw.githubusercontent.com/JSClinton/debian/main/setup.sh
-sudo bash ./setup.sh
+wget -O /tmp/debian-setup.tar.gz https://github.com/JSClinton/debian/archive/refs/heads/main.tar.gz
+mkdir -p /tmp/debian-setup
+cd /tmp/debian-setup
+tar -xzf /tmp/debian-setup.tar.gz --strip-components=1
+chmod +x ./setup.sh
+sudo ./setup.sh
 ```
+
+If you are installing from a tagged release instead of `main`, replace the URL with the tag archive URL.
 
 ## What the script does
 
